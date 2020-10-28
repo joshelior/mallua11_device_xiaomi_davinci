@@ -21,12 +21,17 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from davinci device
 $(call inherit-product, device/xiaomi/davinci/device.mk)
 
-# Inherit some common StatixOS stuff.
-$(call inherit-product, vendor/statix/config/common.mk)
-$(call inherit-product, vendor/statix/config/gsm.mk)
+# Inherit some common BootLeggers stuff.
+$(call inherit-product, vendor/bootleggers/config/common.mk)
 TARGET_USES_BLUR := true
 
-PRODUCT_NAME := statix_davinci
+# Maintainer Prop
+PRODUCT_BUILD_PROP_OVERRIDES += \
+DEVICE_MAINTAINERS="MR.ROBOT.MK"
+
+TARGET_BOOT_ANIMATION_RES := 1080
+
+PRODUCT_NAME := bootleg_davinci
 PRODUCT_DEVICE := davinci
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Mi 9T
